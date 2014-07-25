@@ -1,5 +1,5 @@
 //
-//  DataModelOne.h
+//  DataModelThree.h
 //  SQLScaffold
 //
 //  Created by Stephen Hatton on 25/07/2014.
@@ -9,12 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "SQLScaffold.h"
 
-@interface DataModelOne : NSObject
+@interface DataModelThree : NSObject
 
 @property (nonatomic, retain) SQLScaffold *sql;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *address;
 @property (nonatomic) int age;
-@property (nonatomic, retain) NSDate *dob;
 
 @end

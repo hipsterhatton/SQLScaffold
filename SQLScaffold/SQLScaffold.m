@@ -56,6 +56,8 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+    NSLog(@"Class: %@", [[object valueForKey:keyPath] class]);
+    
     [_columns addObject:keyPath];
     [_values addObject:[object valueForKey:keyPath]];
 }
@@ -190,7 +192,11 @@
 {
     NSString *evalStmt = @"";
     for (int a = 0; a < [arrayOne count]; a++) {
-        evalStmt =  add(evalStmt, add(arrayOne[a], add(extraValue, arrayTwo[a])));
+        
+        NSString *arrayOneStr = [NSString stringWithFormat:@"%@", [[arrayOne objectAtIndex:a] valueForKey:@"description"]];
+        NSString *arrayTwoStr = [NSString stringWithFormat:@"%@", [[arrayTwo objectAtIndex:a] valueForKey:@"description"]];
+        
+        evalStmt =  add(evalStmt, add(arrayOneStr, add(extraValue, arrayTwoStr)));
         if (a < [arrayOne count]-1)
             evalStmt = add(evalStmt, @", ");
     }
@@ -213,6 +219,7 @@
 {
     NSString *flatten = @"";
     for (int a = 0; a < [array count]; a++) {
+        
         flatten = add(flatten, array[a]);
         if (a < [array count]-1)
             flatten = add(flatten, extraValue);

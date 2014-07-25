@@ -20,6 +20,8 @@
 		BC9168EC19812C4300FAB5B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC9168EA19812C4300FAB5B6 /* InfoPlist.strings */; };
 		BC9168EE19812C4300FAB5B6 /* SQLScaffoldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9168ED19812C4300FAB5B6 /* SQLScaffoldTests.m */; };
 		BC9168FB19812CB500FAB5B6 /* SQLScaffold.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9168FA19812CB500FAB5B6 /* SQLScaffold.m */; };
+		BCFF6F7B1982A44C00C12E8F /* DataModelTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6F7A1982A44C00C12E8F /* DataModelTwo.m */; };
+		BCFF6F7E1982A45500C12E8F /* DataModelThree.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFF6F7D1982A45500C12E8F /* DataModelThree.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		BC9168ED19812C4300FAB5B6 /* SQLScaffoldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQLScaffoldTests.m; sourceTree = "<group>"; };
 		BC9168F919812CB500FAB5B6 /* SQLScaffold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLScaffold.h; sourceTree = "<group>"; };
 		BC9168FA19812CB500FAB5B6 /* SQLScaffold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLScaffold.m; sourceTree = "<group>"; };
+		BCFF6F791982A44C00C12E8F /* DataModelTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelTwo.h; sourceTree = "<group>"; };
+		BCFF6F7A1982A44C00C12E8F /* DataModelTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelTwo.m; sourceTree = "<group>"; };
+		BCFF6F7C1982A45500C12E8F /* DataModelThree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelThree.h; sourceTree = "<group>"; };
+		BCFF6F7D1982A45500C12E8F /* DataModelThree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelThree.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +182,10 @@
 			children = (
 				BC0DD3F51982876000F84F48 /* DataModelOne.h */,
 				BC0DD3F61982876000F84F48 /* DataModelOne.m */,
+				BCFF6F791982A44C00C12E8F /* DataModelTwo.h */,
+				BCFF6F7A1982A44C00C12E8F /* DataModelTwo.m */,
+				BCFF6F7C1982A45500C12E8F /* DataModelThree.h */,
+				BCFF6F7D1982A45500C12E8F /* DataModelThree.m */,
 			);
 			name = "Data Models";
 			sourceTree = "<group>";
@@ -278,9 +288,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCFF6F7E1982A45500C12E8F /* DataModelThree.m in Sources */,
 				BC9168D719812C4300FAB5B6 /* AppDelegate.m in Sources */,
 				BC9168D019812C4300FAB5B6 /* main.m in Sources */,
 				BC0DD3F71982876000F84F48 /* DataModelOne.m in Sources */,
+				BCFF6F7B1982A44C00C12E8F /* DataModelTwo.m in Sources */,
 				BC9168FB19812CB500FAB5B6 /* SQLScaffold.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,13 +8,24 @@
 
 #import "AppDelegate.h"
 #import "DataModelOne.h"
+#import "DataModelTwo.h"
+#import "DataModelThree.h"
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     DataModelOne *modelOne = [[DataModelOne alloc] init];
+//    DataModelTwo *modelTwo = [[DataModelTwo alloc] init];
+//    DataModelThree *modelThree = [[DataModelThree alloc] init];
+    
     [modelOne setName:@"Stephen"];
+    [[modelOne sql] update];
+    
+    [modelOne setAge:22];
+    [[modelOne sql] update];
+    
+    [modelOne setDob:[NSDate date]];
     [[modelOne sql] update];
 }
 
