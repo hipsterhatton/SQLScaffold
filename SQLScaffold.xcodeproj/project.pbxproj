@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC0DD3F71982876000F84F48 /* DataModelOne.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0DD3F61982876000F84F48 /* DataModelOne.m */; };
+		BC9168C419812C4300FAB5B6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC9168C319812C4300FAB5B6 /* Cocoa.framework */; };
+		BC9168CE19812C4300FAB5B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC9168CC19812C4300FAB5B6 /* InfoPlist.strings */; };
+		BC9168D019812C4300FAB5B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9168CF19812C4300FAB5B6 /* main.m */; };
+		BC9168D419812C4300FAB5B6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BC9168D219812C4300FAB5B6 /* Credits.rtf */; };
+		BC9168D719812C4300FAB5B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9168D619812C4300FAB5B6 /* AppDelegate.m */; };
+		BC9168DA19812C4300FAB5B6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9168D819812C4300FAB5B6 /* MainMenu.xib */; };
+		BC9168DC19812C4300FAB5B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC9168DB19812C4300FAB5B6 /* Images.xcassets */; };
+		BC9168E319812C4300FAB5B6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC9168E219812C4300FAB5B6 /* XCTest.framework */; };
+		BC9168E419812C4300FAB5B6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC9168C319812C4300FAB5B6 /* Cocoa.framework */; };
+		BC9168EC19812C4300FAB5B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC9168EA19812C4300FAB5B6 /* InfoPlist.strings */; };
+		BC9168EE19812C4300FAB5B6 /* SQLScaffoldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9168ED19812C4300FAB5B6 /* SQLScaffoldTests.m */; };
+		BC9168FB19812CB500FAB5B6 /* SQLScaffold.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9168FA19812CB500FAB5B6 /* SQLScaffold.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BC9168E519812C4300FAB5B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC9168B819812C4300FAB5B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC9168BF19812C4300FAB5B6;
+			remoteInfo = SQLScaffold;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BC0DD3F51982876000F84F48 /* DataModelOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelOne.h; sourceTree = "<group>"; };
+		BC0DD3F61982876000F84F48 /* DataModelOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelOne.m; sourceTree = "<group>"; };
+		BC9168C019812C4300FAB5B6 /* SQLScaffold.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLScaffold.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC9168C319812C4300FAB5B6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		BC9168C619812C4300FAB5B6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		BC9168C719812C4300FAB5B6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BC9168C819812C4300FAB5B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BC9168CB19812C4300FAB5B6 /* SQLScaffold-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SQLScaffold-Info.plist"; sourceTree = "<group>"; };
+		BC9168CD19812C4300FAB5B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC9168CF19812C4300FAB5B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BC9168D119812C4300FAB5B6 /* SQLScaffold-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SQLScaffold-Prefix.pch"; sourceTree = "<group>"; };
+		BC9168D319812C4300FAB5B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		BC9168D519812C4300FAB5B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BC9168D619812C4300FAB5B6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BC9168D919812C4300FAB5B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BC9168DB19812C4300FAB5B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BC9168E119812C4300FAB5B6 /* SQLScaffoldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SQLScaffoldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC9168E219812C4300FAB5B6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		BC9168E919812C4300FAB5B6 /* SQLScaffoldTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SQLScaffoldTests-Info.plist"; sourceTree = "<group>"; };
+		BC9168EB19812C4300FAB5B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC9168ED19812C4300FAB5B6 /* SQLScaffoldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQLScaffoldTests.m; sourceTree = "<group>"; };
+		BC9168F919812CB500FAB5B6 /* SQLScaffold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLScaffold.h; sourceTree = "<group>"; };
+		BC9168FA19812CB500FAB5B6 /* SQLScaffold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLScaffold.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC9168BD19812C4300FAB5B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC9168C419812C4300FAB5B6 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC9168DE19812C4300FAB5B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC9168E419812C4300FAB5B6 /* Cocoa.framework in Frameworks */,
+				BC9168E319812C4300FAB5B6 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BC9168B719812C4300FAB5B6 = {
+			isa = PBXGroup;
+			children = (
+				BC9168C919812C4300FAB5B6 /* SQLScaffold */,
+				BC9168E719812C4300FAB5B6 /* SQLScaffoldTests */,
+				BC9168C219812C4300FAB5B6 /* Frameworks */,
+				BC9168C119812C4300FAB5B6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BC9168C119812C4300FAB5B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC9168C019812C4300FAB5B6 /* SQLScaffold.app */,
+				BC9168E119812C4300FAB5B6 /* SQLScaffoldTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC9168C219812C4300FAB5B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC9168C319812C4300FAB5B6 /* Cocoa.framework */,
+				BC9168E219812C4300FAB5B6 /* XCTest.framework */,
+				BC9168C519812C4300FAB5B6 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC9168C519812C4300FAB5B6 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC9168C619812C4300FAB5B6 /* AppKit.framework */,
+				BC9168C719812C4300FAB5B6 /* CoreData.framework */,
+				BC9168C819812C4300FAB5B6 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		BC9168C919812C4300FAB5B6 /* SQLScaffold */ = {
+			isa = PBXGroup;
+			children = (
+				BC9168F819812C9E00FAB5B6 /* Data Models */,
+				BC9168F719812C9300FAB5B6 /* SQLScaffold */,
+				BC9168D519812C4300FAB5B6 /* AppDelegate.h */,
+				BC9168D619812C4300FAB5B6 /* AppDelegate.m */,
+				BC9168D819812C4300FAB5B6 /* MainMenu.xib */,
+				BC9168DB19812C4300FAB5B6 /* Images.xcassets */,
+				BC9168CA19812C4300FAB5B6 /* Supporting Files */,
+			);
+			path = SQLScaffold;
+			sourceTree = "<group>";
+		};
+		BC9168CA19812C4300FAB5B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC9168CB19812C4300FAB5B6 /* SQLScaffold-Info.plist */,
+				BC9168CC19812C4300FAB5B6 /* InfoPlist.strings */,
+				BC9168CF19812C4300FAB5B6 /* main.m */,
+				BC9168D119812C4300FAB5B6 /* SQLScaffold-Prefix.pch */,
+				BC9168D219812C4300FAB5B6 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BC9168E719812C4300FAB5B6 /* SQLScaffoldTests */ = {
+			isa = PBXGroup;
+			children = (
+				BC9168ED19812C4300FAB5B6 /* SQLScaffoldTests.m */,
+				BC9168E819812C4300FAB5B6 /* Supporting Files */,
+			);
+			path = SQLScaffoldTests;
+			sourceTree = "<group>";
+		};
+		BC9168E819812C4300FAB5B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC9168E919812C4300FAB5B6 /* SQLScaffoldTests-Info.plist */,
+				BC9168EA19812C4300FAB5B6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BC9168F719812C9300FAB5B6 /* SQLScaffold */ = {
+			isa = PBXGroup;
+			children = (
+				BC9168F919812CB500FAB5B6 /* SQLScaffold.h */,
+				BC9168FA19812CB500FAB5B6 /* SQLScaffold.m */,
+			);
+			name = SQLScaffold;
+			sourceTree = "<group>";
+		};
+		BC9168F819812C9E00FAB5B6 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC0DD3F51982876000F84F48 /* DataModelOne.h */,
+				BC0DD3F61982876000F84F48 /* DataModelOne.m */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BC9168BF19812C4300FAB5B6 /* SQLScaffold */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC9168F119812C4300FAB5B6 /* Build configuration list for PBXNativeTarget "SQLScaffold" */;
+			buildPhases = (
+				BC9168BC19812C4300FAB5B6 /* Sources */,
+				BC9168BD19812C4300FAB5B6 /* Frameworks */,
+				BC9168BE19812C4300FAB5B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SQLScaffold;
+			productName = SQLScaffold;
+			productReference = BC9168C019812C4300FAB5B6 /* SQLScaffold.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BC9168E019812C4300FAB5B6 /* SQLScaffoldTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC9168F419812C4300FAB5B6 /* Build configuration list for PBXNativeTarget "SQLScaffoldTests" */;
+			buildPhases = (
+				BC9168DD19812C4300FAB5B6 /* Sources */,
+				BC9168DE19812C4300FAB5B6 /* Frameworks */,
+				BC9168DF19812C4300FAB5B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC9168E619812C4300FAB5B6 /* PBXTargetDependency */,
+			);
+			name = SQLScaffoldTests;
+			productName = SQLScaffoldTests;
+			productReference = BC9168E119812C4300FAB5B6 /* SQLScaffoldTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC9168B819812C4300FAB5B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Stephen Hatton";
+				TargetAttributes = {
+					BC9168E019812C4300FAB5B6 = {
+						TestTargetID = BC9168BF19812C4300FAB5B6;
+					};
+				};
+			};
+			buildConfigurationList = BC9168BB19812C4300FAB5B6 /* Build configuration list for PBXProject "SQLScaffold" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BC9168B719812C4300FAB5B6;
+			productRefGroup = BC9168C119812C4300FAB5B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC9168BF19812C4300FAB5B6 /* SQLScaffold */,
+				BC9168E019812C4300FAB5B6 /* SQLScaffoldTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC9168BE19812C4300FAB5B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC9168CE19812C4300FAB5B6 /* InfoPlist.strings in Resources */,
+				BC9168DC19812C4300FAB5B6 /* Images.xcassets in Resources */,
+				BC9168D419812C4300FAB5B6 /* Credits.rtf in Resources */,
+				BC9168DA19812C4300FAB5B6 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC9168DF19812C4300FAB5B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC9168EC19812C4300FAB5B6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC9168BC19812C4300FAB5B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC9168D719812C4300FAB5B6 /* AppDelegate.m in Sources */,
+				BC9168D019812C4300FAB5B6 /* main.m in Sources */,
+				BC0DD3F71982876000F84F48 /* DataModelOne.m in Sources */,
+				BC9168FB19812CB500FAB5B6 /* SQLScaffold.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC9168DD19812C4300FAB5B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC9168EE19812C4300FAB5B6 /* SQLScaffoldTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BC9168E619812C4300FAB5B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC9168BF19812C4300FAB5B6 /* SQLScaffold */;
+			targetProxy = BC9168E519812C4300FAB5B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BC9168CC19812C4300FAB5B6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC9168CD19812C4300FAB5B6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BC9168D219812C4300FAB5B6 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC9168D319812C4300FAB5B6 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		BC9168D819812C4300FAB5B6 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC9168D919812C4300FAB5B6 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		BC9168EA19812C4300FAB5B6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC9168EB19812C4300FAB5B6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BC9168EF19812C4300FAB5B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BC9168F019812C4300FAB5B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BC9168F219812C4300FAB5B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SQLScaffold/SQLScaffold-Prefix.pch";
+				INFOPLIST_FILE = "SQLScaffold/SQLScaffold-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BC9168F319812C4300FAB5B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SQLScaffold/SQLScaffold-Prefix.pch";
+				INFOPLIST_FILE = "SQLScaffold/SQLScaffold-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BC9168F519812C4300FAB5B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SQLScaffold.app/Contents/MacOS/SQLScaffold";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SQLScaffold/SQLScaffold-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SQLScaffoldTests/SQLScaffoldTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		BC9168F619812C4300FAB5B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SQLScaffold.app/Contents/MacOS/SQLScaffold";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SQLScaffold/SQLScaffold-Prefix.pch";
+				INFOPLIST_FILE = "SQLScaffoldTests/SQLScaffoldTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC9168BB19812C4300FAB5B6 /* Build configuration list for PBXProject "SQLScaffold" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC9168EF19812C4300FAB5B6 /* Debug */,
+				BC9168F019812C4300FAB5B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC9168F119812C4300FAB5B6 /* Build configuration list for PBXNativeTarget "SQLScaffold" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC9168F219812C4300FAB5B6 /* Debug */,
+				BC9168F319812C4300FAB5B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC9168F419812C4300FAB5B6 /* Build configuration list for PBXNativeTarget "SQLScaffoldTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC9168F519812C4300FAB5B6 /* Debug */,
+				BC9168F619812C4300FAB5B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC9168B819812C4300FAB5B6 /* Project object */;
+}
