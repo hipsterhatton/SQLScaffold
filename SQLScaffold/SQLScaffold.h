@@ -14,7 +14,6 @@ typedef enum {
     Desc =  0,
     None =  -1
 } Order;
-
 typedef enum  {
     Null =      0,
     Integer =   1,
@@ -38,6 +37,7 @@ typedef enum  {
 
 
 
+- (id)initAndSetup:(NSString *)database :(NSString *)table :(NSObject *)parent :(NSArray *)vars;
 - (void)setup:(NSString *)database :(NSString *)table :(NSObject *)parent :(NSArray *)vars;
 - (void)takedown:(NSObject *)parent;
 

@@ -11,9 +11,6 @@
 
 @implementation SQLScaffold
 
-
-
-
 # pragma - Core Methods
 
 - (id)init
@@ -23,6 +20,21 @@
     _varsMonitored = [[NSMutableArray alloc] init];
     _columns = [[NSMutableArray alloc] init];
     _values = [[NSMutableArray alloc] init];
+    return self;
+}
+
+- (id)initAndSetup:(NSString *)database :(NSString *)table :(NSObject *)parent :(NSArray *)vars
+{
+    _pathToDatabase = database;
+    _tableName = table;
+    _varsMonitored = [[NSMutableArray alloc] initWithArray:vars];
+
+    _columns = [[NSMutableArray alloc] init];
+    _values = [[NSMutableArray alloc] init];
+    
+    for (NSString *string in vars)
+        [parent addObserver:self forKeyPath:string options:NSKeyValueObservingOptionNew context:NULL];
+    
     return self;
 }
 
