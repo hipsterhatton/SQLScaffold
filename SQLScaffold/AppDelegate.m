@@ -21,6 +21,8 @@
     [modelOne setAddress:@"My Address Will Go Here..."];
     [modelOne setAge:22];
     [modelOne setDob:[NSDate date]];
+    
+    [[modelOne sql] update];
 }
 
 @end

@@ -21,6 +21,8 @@
     _varsMonitored = [[NSMutableArray alloc] init];
     _columns = [[NSMutableArray alloc] init];
     _values = [[NSMutableArray alloc] init];
+    _whereStatement = @"";
+    _where = [[NSMutableArray alloc] init];
     return self;
 }
 
@@ -32,6 +34,9 @@
 
     _columns = [[NSMutableArray alloc] init];
     _values = [[NSMutableArray alloc] init];
+    
+    _whereStatement = @"";
+    _where = [[NSMutableArray alloc] init];
     
     for (NSString *string in vars)
         [parent addObserver:self forKeyPath:string options:NSKeyValueObservingOptionNew context:NULL];
@@ -57,36 +62,10 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    NSLog(@"Class: %@", [[object valueForKey:keyPath] class]);
-    NSString *str = @"";
-    
-    if ([[object valueForKey:keyPath] isKindOfClass:[NSString class]]) {
-    
-        NSLog(@"String...");
-        str = [NSString stringWithFormat:@"%@", [[object valueForKey:keyPath] valueForKey:@"description"]];
-        str = add(@"\"", add(str, @"\""));
-        
-        
-    } else if ([[object valueForKey:keyPath] isKindOfClass:[NSNumber class]]) {
-        
-        NSLog(@"Numbers...");
-        str = [NSString stringWithFormat:@"%@", [[object valueForKey:keyPath] valueForKey:@"description"]];
-        
-        
-    } else if ([[object valueForKey:keyPath] isKindOfClass:[NSDate class]]) {
-        
-        NSLog(@"Date...");        
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:sqlite_date_format];
-        str = [formatter stringFromDate:[object valueForKey:keyPath]];
-        str = add(@"\"", add(str, @"\""));
-        
-    }
+    NSString *str = [self _convert:[object valueForKey:keyPath]];
     
     [_columns addObject:keyPath];
     [_values addObject:str];
-    
-    NSLog(@"Values: %@", _values);
 }
 
 
@@ -131,20 +110,45 @@
 
 - (void)update
 {
-    NSString *sql = @"UPDATE #{table} SET #{eval} ;";
-    
+    NSString *sql;
     NSString *test = @"";
-    test = [self _process:sql :@[ @"#{table}", @"#{eval}" ] :@[ _tableName, [self _evaluate:_columns :_values :@"="]] ];
+    
+    
+    if ([_whereStatement isEqualToString:@""]) {
+        
+        sql = @"UPDATE #{table} SET #{eval};";
+        test = [self _process:sql :@[ @"#{table}", @"#{eval}" ] :@[ _tableName, [self _evaluate:_columns :_values :@"="]] ];
+        
+    } else {
+        
+        sql = @"UPDATE #{table} SET #{eval} WHERE #{where};";
+        test = [self _process:sql
+                             :@[ @"#{table}", @"#{eval}", @"#{where}" ]
+                             :@[ _tableName,
+                                 [self _evaluate:_columns :_values :@"="],
+                                 _whereStatement] ] ;
+    }
     
     NSLog(@"Update: %@", test);
 }
 
-- (void)destrory
+- (void)destroy
 {
-    NSString *sql = @"DELETE FROM #{table} WHERE #{eval} ;";
-    
+    NSString *sql;;
     NSString *test = @"";
-    test = [self _process:sql :@[ @"#{table}", @"#{eval}" ] :@[ _tableName, @"Eval Goes Here!" ]];
+    
+    
+    if ([_whereStatement isEqualToString:@""]) {
+        
+        sql = @"DELETE FROM #{table};";
+        test = [self _process:sql :@[ @"#{table}" ] :@[ _tableName ]];
+        
+    } else {
+        
+        sql = @"DELETE FROM #{table} WHERE #{where};";
+        test = [self _process:sql :@[ @"#{table}", @"#{where}" ] :@[ _tableName, _whereStatement ]];
+        
+    }
     
     NSLog(@"Destroy: %@", test);
 }
@@ -213,7 +217,45 @@
 
 
 
+# pragma - SQL Where Statement Methods
+
+- (void)addWhere:(NSString *)statement :(NSArray *)values
+{
+    _whereStatement = statement;
+    [_where addObjectsFromArray:values];
+}
+
+
+
+
+
 # pragma - Private SQL Processsing
+
+- (NSString *)_convert:(NSObject *)object
+{
+    NSString *str = @"";
+    if ([object isKindOfClass:[NSString class]]) {
+        
+        str = [NSString stringWithFormat:@"%@", [object valueForKey:@"description"]];
+        str = add(@"\"", add(str, @"\""));
+        
+        
+    } else if ([object isKindOfClass:[NSNumber class]]) {
+        
+        str = [NSString stringWithFormat:@"%@", [object valueForKey:@"description"]];
+        
+        
+    } else if ([object isKindOfClass:[NSDate class]]) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:sqlite_date_format];
+        str = [formatter stringFromDate:(NSDate *)object];
+        str = add(@"\"", add(str, @"\""));
+        
+    }
+    
+    return str;
+}
 
 - (NSString *)_evaluate:(NSArray *)arrayOne :(NSArray *)arrayTwo :(NSString *)extraValue
 {
@@ -264,7 +306,7 @@
  
  - Add support for FMDB / get the loading statements done
  
- - Add where statement support -- not sure about this one!
+ - Need to handle SQL injection attacks -- use of placeholders!
  
  - Completely test this through! Write read me and push to GitHub
  

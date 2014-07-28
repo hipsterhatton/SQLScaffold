@@ -11,9 +11,10 @@
 
 typedef enum {
     Asc =   2,
-    Desc =  0,
-    None =  -1
+    Desc =  1,
+    None =  0
 } Order;
+
 typedef enum  {
     Null =      0,
     Integer =   1,
@@ -35,6 +36,9 @@ typedef enum  {
 @property (nonatomic, retain) NSMutableArray *columns;
 @property (nonatomic, retain) NSMutableArray *values;
 
+@property (nonatomic, retain) NSMutableArray *where;
+@property (nonatomic, retain) NSString *whereStatement;
+
 
 
 - (id)initAndSetup:(NSString *)database :(NSString *)table :(NSObject *)parent :(NSArray *)vars;
@@ -43,13 +47,14 @@ typedef enum  {
 
 - (void)addColumns:(ColumnTypes)columns;
 - (void)addValues:(NSString *)name;
+- (void)addWhere:(NSString *)statement :(NSArray *)values;
 
 - (void)createTable;
 - (void)dropTable;
 
 - (void)insert;
 - (void)update;
-- (void)destrory;
+- (void)destroy;
 - (void)loadAll:(Order)order;
 - (void)loadSubset:(Order)order;
 
