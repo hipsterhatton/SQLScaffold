@@ -24,6 +24,7 @@
     _valuePlaceholders = [[NSMutableArray alloc] init];
     _whereStatement = @"";
     _where = [[NSMutableArray alloc] init];
+    _ordering = @"";
     return self;
 }
 
@@ -39,6 +40,8 @@
     
     _whereStatement = @"";
     _where = [[NSMutableArray alloc] init];
+    
+    _ordering = @"";
     
     for (NSString *string in vars)
         [parent addObserver:self forKeyPath:string options:NSKeyValueObservingOptionNew context:NULL];
@@ -87,6 +90,8 @@
     test = [self _process:sql :@[ @"#{eval}" ] :@[ [self _evaluate:_values :_columns :@" "] ]];
 
     NSLog(@"Create Table: %@", test);
+    
+    [self clearAll];
 }
 
 - (void)dropTable
@@ -97,6 +102,8 @@
     test = [self _process:sql :@[ @"#{table}" ] :@[ _tableName ]];
     
     NSLog(@"Drop Table: %@", test);
+    
+    [self clearAll];
 }
 
 # pragma - SQL Methods - Data Interaction
@@ -109,6 +116,8 @@
     test = [self _process:sql :@[ @"#{table}", @"#{values}" ] :@[ _tableName, _valuePlaceholders] ];
     
     NSLog(@"Insert: %@ : %@", test, _values);
+    
+    [self clearAll];
 }
 
 - (void)update
@@ -133,6 +142,8 @@
     }
     
     NSLog(@"Update: %@ : %@", test, _values);
+    
+    [self clearAll];
 }
 
 - (void)destroy
@@ -154,16 +165,110 @@
     }
     
     NSLog(@"Destroy: %@", test);
+    
+    [self clearAll];
 }
 
-- (void)loadAll:(Order)order
+- (FMResultSet *)loadSubset:(Order)order
 {
+    NSString *sql = @"";
+    NSString *test = @"";
     
+    
+    
+    switch (order) {
+            
+        case None:
+            _ordering = @"";
+            break;
+            
+            
+        case Desc:
+            _ordering = @"ORDER BY DESC";
+            break;
+            
+            
+        case Asc:
+            _ordering = @"ORDER BY ASC";
+            break;
+            
+            
+        default:
+            _ordering = @"";
+            break;
+    }
+    
+    
+    
+    if ([_whereStatement isEqualToString:@""]) {
+        
+        sql = @"SELECT #{columns} FROM #{table} #{params_ordering};";
+        test = [self _process:sql :@[ @"#{columns}", @"#{table}", @"#{params_ordering}" ] :@[ _columns, _tableName, _ordering ]];
+        
+    } else {
+        
+        sql = @"SELECT #{columns} FROM #{table} WHERE #{where} #{params_ordering};";
+        test = [self _process:sql
+                             :@[ @"#{columns}", @"#{table}", @"#{where}", @"#{params_ordering}" ]
+                             :@[ _columns, _tableName, _whereStatement, _ordering ]];
+        
+    }
+    
+    NSLog(@"Select Subset: %@", test);
+    
+    [self clearAll];
+    return nil;
 }
 
-- (void)loadSubset:(Order)order
+- (FMResultSet *)loadAll:(Order)order
 {
+    NSString *sql = @"";
+    NSString *test = @"";
     
+    
+    
+    switch (order) {
+            
+        case None:
+            _ordering = @"";
+            break;
+            
+            
+        case Desc:
+            _ordering = @"ORDER BY DESC";
+            break;
+            
+            
+        case Asc:
+            _ordering = @"ORDER BY ASC";
+            break;
+            
+            
+        default:
+            _ordering = @"";
+            break;
+    }
+    
+    
+    
+    if ([_whereStatement isEqualToString:@""]) {
+        
+        sql = @"SELECT * FROM #{table} #{params_ordering};";
+        test = [self _process:sql :@[ @"#{table}", @"#{params_ordering}" ] :@[ _tableName, _ordering ]];
+        
+    } else {
+        
+        sql = @"SELECT * FROM #{table} WHERE #{where} #{params_ordering};";
+        test = [self _process:sql
+                             :@[ @"#{table}", @"#{where}", @"#{params_ordering}" ]
+                             :@[ _tableName, _whereStatement, _ordering ]];
+        
+    }
+    
+    NSLog(@"Select All: %@", test);
+    
+    [self clearAll];
+    return nil;
 }
 
 
@@ -171,7 +276,7 @@
 
 # pragma - SQL Support Methods (Create Table)
 
-- (void)addColumns:(ColumnTypes)columns
+- (void)addCreateColumns:(ColumnTypes)columns
 {
     NSString *columnType = @"";
     switch (columns) {
@@ -212,6 +317,11 @@
     [_columns addObject:columnType];
 }
 
+- (void)addColumns:(NSString *)name
+{
+    [_columns addObject:name];
+}
+
 - (void)addValues:(NSString *)name
 {
     [_values addObject:name];
@@ -231,8 +341,47 @@
 
 
 
+# pragma - SQL Where Statement Methods
+
+- (BOOL)_writeToDatabase:(NSString *)SQLStatement :(NSArray *)supportingParams
+{
+    _database = [FMDatabase databaseWithPath:_pathToDatabase];
+    
+    if (![_database open])
+        return 0;
+    
+    [_database executeUpdate:SQLStatement withArgumentsInArray:supportingParams];
+    
+    [_database close];
+    return 0;
+}
+
+- (FMResultSet *)_readFromDatabase:(NSString *)SQLStatement :(NSArray *)supportingParams
+{
+    _database = [FMDatabase databaseWithPath:_pathToDatabase];
+    
+    if (![_database open])
+        return nil;
+    
+    return [_database executeQuery:SQLStatement withArgumentsInArray:supportingParams];
+}
+
+
+
 
 # pragma - Private SQL Processsing
+
+- (void)clearAll
+{
+    [_columns removeAllObjects];
+    [_values removeAllObjects];
+    [_valuePlaceholders removeAllObjects];
+    
+    [_where removeAllObjects];
+    _whereStatement = @"";
+    
+    _ordering = @"";
+}
 
 - (NSString *)_convert:(NSObject *)object
 {
@@ -306,10 +455,6 @@
 /*
  
  CODE TO DO:
- 
- - Add support for FMDB / get the loading statements done
- 
- - Need to handle SQL injection attacks -- use of placeholders!
  
  - Completely test this through! Write read me and push to GitHub
  

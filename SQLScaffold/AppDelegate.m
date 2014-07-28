@@ -17,13 +17,14 @@
 {
     DataModelOne *modelOne = [[DataModelOne alloc] init];
     
-    [modelOne setName:@"Stephen"];
-    [modelOne setAddress:@"My Address Will Go Here..."];
-    [modelOne setAge:22];
-    [modelOne setDob:[NSDate date]];
+//    [modelOne setName:@"Stephen"];
+//    [modelOne setAddress:@"My Address Will Go Here..."];
+//    [modelOne setAge:22];
+//    [modelOne setDob:[NSDate date]];
     
-    [[modelOne sql] insert];
-    [[modelOne sql] update];
+    [[modelOne sql] addColumns:@"ColumnOne"];
+    [[modelOne sql] addColumns:@"ColumnTwo"];
+    [[modelOne sql] loadSubset:Asc];
 }
 
 @end

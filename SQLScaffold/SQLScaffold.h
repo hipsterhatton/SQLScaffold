@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FMDB/FMDatabase.h>
 #define k(__KEY__)  (NSStringFromSelector(@selector(__KEY__))) // This is used to extract the actual name from variables
 
 typedef enum {
@@ -29,6 +30,8 @@ typedef enum  {
 
 @interface SQLScaffold : NSObject
 
+@property (nonatomic, retain) FMDatabase *database;
+
 @property (nonatomic, retain) NSString *pathToDatabase;
 @property (nonatomic, retain) NSString *tableName;
 @property (nonatomic, retain) NSMutableArray *varsMonitored;
@@ -40,13 +43,16 @@ typedef enum  {
 @property (nonatomic, retain) NSMutableArray *where;
 @property (nonatomic, retain) NSString *whereStatement;
 
+@property (nonatomic, retain) NSString *ordering;
+
 
 
 - (id)initAndSetup:(NSString *)database :(NSString *)table :(NSObject *)parent :(NSArray *)vars;
 - (void)setup:(NSString *)database :(NSString *)table :(NSObject *)parent :(NSArray *)vars;
 - (void)takedown:(NSObject *)parent;
 
-- (void)addColumns:(ColumnTypes)columns;
+- (void)addCreateColumns:(ColumnTypes)columns;
+- (void)addColumns:(NSString *)name;
 - (void)addValues:(NSString *)name;
 - (void)addWhere:(NSString *)statement :(NSArray *)values;
 
@@ -56,7 +62,7 @@ typedef enum  {
 - (void)insert;
 - (void)update;
 - (void)destroy;
-- (void)loadAll:(Order)order;
-- (void)loadSubset:(Order)order;
+- (FMResultSet *)loadAll:(Order)order;
+- (FMResultSet *)loadSubset:(Order)order;
 
 @end
