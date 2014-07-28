@@ -7,7 +7,8 @@
 //
 
 #import "SQLScaffold.h"
-#define add(str1, str2) [str1 stringByAppendingString:str2]
+#define add(str1, str2)     [str1 stringByAppendingString:str2]
+#define sqlite_date_format  @"YYYY-MM-DD HH:MM:SS"
 
 @implementation SQLScaffold
 
@@ -57,9 +58,35 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     NSLog(@"Class: %@", [[object valueForKey:keyPath] class]);
+    NSString *str = @"";
+    
+    if ([[object valueForKey:keyPath] isKindOfClass:[NSString class]]) {
+    
+        NSLog(@"String...");
+        str = [NSString stringWithFormat:@"%@", [[object valueForKey:keyPath] valueForKey:@"description"]];
+        str = add(@"\"", add(str, @"\""));
+        
+        
+    } else if ([[object valueForKey:keyPath] isKindOfClass:[NSNumber class]]) {
+        
+        NSLog(@"Numbers...");
+        str = [NSString stringWithFormat:@"%@", [[object valueForKey:keyPath] valueForKey:@"description"]];
+        
+        
+    } else if ([[object valueForKey:keyPath] isKindOfClass:[NSDate class]]) {
+        
+        NSLog(@"Date...");        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:sqlite_date_format];
+        str = [formatter stringFromDate:[object valueForKey:keyPath]];
+        str = add(@"\"", add(str, @"\""));
+        
+    }
     
     [_columns addObject:keyPath];
-    [_values addObject:[object valueForKey:keyPath]];
+    [_values addObject:str];
+    
+    NSLog(@"Values: %@", _values);
 }
 
 
@@ -231,7 +258,17 @@
 @end
 
 
-
+/*
+ 
+ CODE TO DO:
+ 
+ - Add support for FMDB / get the loading statements done
+ 
+ - Add where statement support -- not sure about this one!
+ 
+ - Completely test this through! Write read me and push to GitHub
+ 
+*/
 
 
 
