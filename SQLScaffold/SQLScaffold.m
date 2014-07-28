@@ -91,7 +91,7 @@
 
     NSLog(@"Create Table: %@", test);
     
-    [self clearAll];
+    [self _clearAll];
 }
 
 - (void)dropTable
@@ -103,7 +103,7 @@
     
     NSLog(@"Drop Table: %@", test);
     
-    [self clearAll];
+    [self _clearAll];
 }
 
 # pragma - SQL Methods - Data Interaction
@@ -117,7 +117,7 @@
     
     NSLog(@"Insert: %@ : %@", test, _values);
     
-    [self clearAll];
+    [self _clearAll];
 }
 
 - (void)update
@@ -143,7 +143,7 @@
     
     NSLog(@"Update: %@ : %@", test, _values);
     
-    [self clearAll];
+    [self _clearAll];
 }
 
 - (void)destroy
@@ -166,7 +166,7 @@
     
     NSLog(@"Destroy: %@", test);
     
-    [self clearAll];
+    [self _clearAll];
 }
 
 - (FMResultSet *)loadSubset:(Order)order
@@ -216,7 +216,7 @@
     
     NSLog(@"Select Subset: %@", test);
     
-    [self clearAll];
+    [self _clearAll];
     return nil;
 }
 
@@ -267,7 +267,7 @@
     
     NSLog(@"Select All: %@", test);
     
-    [self clearAll];
+    [self _clearAll];
     return nil;
 }
 
@@ -371,7 +371,7 @@
 
 # pragma - Private SQL Processsing
 
-- (void)clearAll
+- (void)_clearAll
 {
     [_columns removeAllObjects];
     [_values removeAllObjects];
