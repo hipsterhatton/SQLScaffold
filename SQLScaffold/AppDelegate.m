@@ -22,6 +22,7 @@
     [modelOne setAge:22];
     [modelOne setDob:[NSDate date]];
     
+    [[modelOne sql] insert];
     [[modelOne sql] update];
 }
 

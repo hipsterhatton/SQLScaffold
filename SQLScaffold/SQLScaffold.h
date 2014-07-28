@@ -35,6 +35,7 @@ typedef enum  {
 
 @property (nonatomic, retain) NSMutableArray *columns;
 @property (nonatomic, retain) NSMutableArray *values;
+@property (nonatomic, retain) NSMutableArray *valuePlaceholders;
 
 @property (nonatomic, retain) NSMutableArray *where;
 @property (nonatomic, retain) NSString *whereStatement;

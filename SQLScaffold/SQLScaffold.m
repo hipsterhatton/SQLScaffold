@@ -21,6 +21,7 @@
     _varsMonitored = [[NSMutableArray alloc] init];
     _columns = [[NSMutableArray alloc] init];
     _values = [[NSMutableArray alloc] init];
+    _valuePlaceholders = [[NSMutableArray alloc] init];
     _whereStatement = @"";
     _where = [[NSMutableArray alloc] init];
     return self;
@@ -34,6 +35,7 @@
 
     _columns = [[NSMutableArray alloc] init];
     _values = [[NSMutableArray alloc] init];
+    _valuePlaceholders = [[NSMutableArray alloc] init];
     
     _whereStatement = @"";
     _where = [[NSMutableArray alloc] init];
@@ -66,6 +68,7 @@
     
     [_columns addObject:keyPath];
     [_values addObject:str];
+    [_valuePlaceholders addObject:@"?"];
 }
 
 
@@ -103,9 +106,9 @@
     NSString *sql = @"INSERT INTO #{table} VALUES ( #{values} );";
 
     NSString *test = @"";
-    test = [self _process:sql :@[ @"#{table}", @"#{values}" ] :@[ _tableName, _values] ];
+    test = [self _process:sql :@[ @"#{table}", @"#{values}" ] :@[ _tableName, _valuePlaceholders] ];
     
-    NSLog(@"Insert: %@", test);
+    NSLog(@"Insert: %@ : %@", test, _values);
 }
 
 - (void)update
@@ -117,7 +120,7 @@
     if ([_whereStatement isEqualToString:@""]) {
         
         sql = @"UPDATE #{table} SET #{eval};";
-        test = [self _process:sql :@[ @"#{table}", @"#{eval}" ] :@[ _tableName, [self _evaluate:_columns :_values :@"="]] ];
+        test = [self _process:sql :@[ @"#{table}", @"#{eval}" ] :@[ _tableName, [self _evaluate:_columns :_valuePlaceholders :@"="]] ];
         
     } else {
         
@@ -129,7 +132,7 @@
                                  _whereStatement] ] ;
     }
     
-    NSLog(@"Update: %@", test);
+    NSLog(@"Update: %@ : %@", test, _values);
 }
 
 - (void)destroy
